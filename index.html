@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Borges Ar Condicionado | Instalação, Manutenção e Limpeza — Itapema &amp; Região</title>
+<meta name="description" content="Instalação, manutenção, limpeza e infraestrutura de ar-condicionado em Itapema e região. Atendimento rápido com Edson e Kevin.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --glacier-deep:#06304A;
+    --glacier-deep-2:#082F49;
+    --signal-blue:#128FD4;
+    --signal-blue-2:#0E77B3;
+    --frost-cyan:#63D6F5;
+    --ice-white:#F1FAFD;
+    --white:#FFFFFF;
+    --ink:#0A1620;
+    --ink-soft:#3E5568;
+    --line:#D6ECF5;
+    --radius:14px;
+    --shadow-soft: 0 20px 45px -25px rgba(6,48,74,0.35);
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter', sans-serif;
+    color:var(--ink);
+    background:var(--white);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%; display:block;}
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none;}
+
+  h1,h2,h3,.display{
+    font-family:'Space Grotesk', sans-serif;
+    letter-spacing:-0.01em;
+    color:var(--glacier-deep);
+  }
+
+  .wrap{
+    max-width:1160px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:'Space Grotesk', sans-serif;
+    font-size:12.5px;
+    font-weight:600;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--signal-blue-2);
+  }
+  .eyebrow::before{
+    content:"";
+    width:18px;
+    height:2px;
+    background:var(--signal-blue);
+    display:inline-block;
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:14px 26px;
+    border-radius:999px;
+    font-weight:600;
+    font-size:15px;
+    font-family:'Space Grotesk', sans-serif;
+    transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{
+    background:var(--signal-blue);
+    color:var(--white);
+    box-shadow:0 14px 28px -12px rgba(18,143,212,.6);
+  }
+  .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 18px 34px -12px rgba(18,143,212,.7); }
+  .btn-ghost{
+    background:rgba(255,255,255,0.08);
+    color:var(--white);
+    border:1px solid rgba(255,255,255,0.35);
+  }
+  .btn-ghost:hover{ background:rgba(255,255,255,0.16); transform:translateY(-2px); }
+  .btn-outline{
+    background:transparent;
+    color:var(--signal-blue-2);
+    border:1.5px solid var(--line);
+  }
+  .btn-outline:hover{ border-color:var(--signal-blue); background:var(--ice-white); }
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(255,255,255,0.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px 0;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .brand-text{ line-height:1.05; }
+  .brand-text .name{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:700;
+    font-size:20px;
+    color:var(--glacier-deep);
+    letter-spacing:0.01em;
+  }
+  .brand-text .sub{
+    font-size:11.5px;
+    color:var(--signal-blue-2);
+    font-weight:600;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+  }
+  .navlinks{
+    display:flex;
+    align-items:center;
+    gap:34px;
+    font-size:14.5px;
+    font-weight:500;
+    color:var(--ink-soft);
+  }
+  .navlinks a{ transition:color .15s ease; }
+  .navlinks a:hover{ color:var(--signal-blue); }
+  .nav-actions{ display:flex; align-items:center; gap:14px; }
+  .nav-actions .btn-primary{ padding:11px 20px; font-size:14px; }
+  .menu-toggle{ display:none; background:none; border:none; cursor:pointer; padding:6px; }
+  .menu-toggle span{ display:block; width:24px; height:2px; background:var(--glacier-deep); margin:5px 0; border-radius:2px; }
+
+  /* ---------- Logo mark (SVG) ---------- */
+  .mark{ display:block; }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    background:
+      radial-gradient(120% 140% at 100% 0%, #0C4C74 0%, var(--glacier-deep) 45%, var(--glacier-deep-2) 100%);
+    color:var(--white);
+    padding:96px 0 120px;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.05fr 0.85fr;
+    gap:40px;
+    align-items:center;
+    position:relative;
+    z-index:2;
+  }
+  .hero .eyebrow{ color:var(--frost-cyan); }
+  .hero .eyebrow::before{ background:var(--frost-cyan); }
+  .hero h1{
+    color:var(--white);
+    font-size:clamp(38px, 5vw, 58px);
+    font-weight:700;
+    line-height:1.05;
+    margin:20px 0 22px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    background:linear-gradient(90deg, var(--frost-cyan), #B9F1FF);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .hero p{
+    font-size:17.5px;
+    color:#CFE9F6;
+    max-width:480px;
+    margin-bottom:34px;
+  }
+  .hero-actions{ display:flex; gap:14px; flex-wrap:wrap; }
+  .hero-badges{
+    display:flex;
+    gap:26px;
+    margin-top:52px;
+    flex-wrap:wrap;
+  }
+  .hero-badges .badge{ display:flex; align-items:center; gap:10px; font-size:13.5px; color:#B9DCEC; }
+  .hero-badges .badge svg{ flex-shrink:0; }
+
+  .hero-visual{
+    position:relative;
+    z-index:2;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .snow-ring{
+    position:relative;
+    width:100%;
+    max-width:380px;
+    aspect-ratio:1/1;
+  }
+  .snow-ring svg{ width:100%; height:100%; }
+
+  .hero-noise{
+    position:absolute; inset:0;
+    background-image:
+      radial-gradient(circle at 20% 20%, rgba(99,214,245,0.16), transparent 40%),
+      radial-gradient(circle at 85% 75%, rgba(99,214,245,0.14), transparent 45%);
+    z-index:1;
+  }
+
+  .wave-sep{
+    display:block;
+    width:100%;
+    line-height:0;
+    margin-top:-2px;
+  }
+
+  /* ---------- Section shared ---------- */
+  section{ padding:90px 0; }
+  .section-head{
+    max-width:640px;
+    margin-bottom:50px;
+  }
+  .section-head h2{
+    font-size:clamp(28px,3.4vw,38px);
+    font-weight:700;
+    margin-top:14px;
+  }
+  .section-head p{
+    color:var(--ink-soft);
+    margin-top:14px;
+    font-size:16px;
+  }
+
+  /* ---------- Services ---------- */
+  .services{ background:var(--ice-white); }
+  .service-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:22px;
+  }
+  .service-card{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:30px 26px;
+    transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+  .service-card:hover{
+    transform:translateY(-6px);
+    box-shadow:var(--shadow-soft);
+    border-color:transparent;
+  }
+  .service-icon{
+    width:52px; height:52px;
+    border-radius:12px;
+    background:linear-gradient(145deg, var(--signal-blue), var(--glacier-deep));
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:20px;
+  }
+  .service-card h3{
+    font-size:18.5px;
+    margin-bottom:10px;
+  }
+  .service-card p{
+    font-size:14.5px;
+    color:var(--ink-soft);
+  }
+  .service-tag{
+    display:inline-block;
+    margin-top:16px;
+    font-size:11.5px;
+    font-weight:700;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--signal-blue-2);
+  }
+
+  /* ---------- Stats strip ---------- */
+  .strip{
+    background:var(--glacier-deep);
+    color:var(--white);
+  }
+  .strip .wrap{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+    padding:44px 28px;
+  }
+  .strip-item{ text-align:center; border-left:1px solid rgba(255,255,255,0.14); padding:0 10px;}
+  .strip-item:first-child{ border-left:none; }
+  .strip-item .num{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:30px;
+    font-weight:700;
+    color:var(--frost-cyan);
+  }
+  .strip-item .lbl{ font-size:12.5px; color:#B9DCEC; margin-top:6px; }
+
+  /* ---------- Gallery ---------- */
+  .gallery-head-row{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:20px;
+    flex-wrap:wrap;
+  }
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(5, 1fr);
+    grid-auto-rows:180px;
+    gap:16px;
+  }
+  .photo-slot{
+    position:relative;
+    border-radius:var(--radius);
+    background:
+      linear-gradient(160deg, #EAF6FC, #DCEFF7);
+    border:1.5px dashed #A9D7EA;
+    overflow:hidden;
+  }
+  .photo-slot img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .photo-slot .placeholder-fallback{
+    display:none;
+    position:absolute;
+    inset:0;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    color:var(--signal-blue-2);
+  }
+  .photo-slot .placeholder-fallback span{
+    font-size:12px;
+    font-weight:600;
+    color:var(--ink-soft);
+    text-align:center;
+    padding:0 14px;
+  }
+  .photo-slot .placeholder-fallback svg{ opacity:0.75; }
+
+  /* ---------- Area / Why us ---------- */
+  .area{
+    background:linear-gradient(180deg, var(--white), var(--ice-white));
+  }
+  .area-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+  }
+  .area-list li{
+    display:flex;
+    gap:14px;
+    padding:16px 0;
+    border-top:1px solid var(--line);
+    font-size:15px;
+    color:var(--ink-soft);
+  }
+  .area-list li:last-child{ border-bottom:1px solid var(--line); }
+  .area-list strong{ color:var(--glacier-deep); }
+  .area-list svg{ flex-shrink:0; margin-top:2px; }
+
+  .area-card{
+    background:var(--glacier-deep);
+    border-radius:20px;
+    padding:38px;
+    color:var(--white);
+    position:relative;
+    overflow:hidden;
+  }
+  .area-card h3{ color:var(--white); font-size:22px; margin-bottom:10px; }
+  .area-card p{ color:#B9DCEC; font-size:14.5px; margin-bottom:24px; }
+
+  /* ---------- Contact ---------- */
+  .contact{
+    background:var(--glacier-deep-2);
+    color:var(--white);
+    position:relative;
+    overflow:hidden;
+  }
+  .contact .section-head h2{ color:var(--white); }
+  .contact .section-head p{ color:#B9DCEC; }
+  .contact .eyebrow{ color:var(--frost-cyan); }
+  .contact .eyebrow::before{ background:var(--frost-cyan); }
+
+  .contact-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:20px;
+  }
+  .contact-card{
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.14);
+    border-radius:var(--radius);
+    padding:30px 28px;
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+  }
+  .contact-card .who{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .avatar{
+    width:46px; height:46px;
+    border-radius:50%;
+    background:linear-gradient(145deg, var(--frost-cyan), var(--signal-blue));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:700;
+    color:var(--glacier-deep);
+    font-size:16px;
+  }
+  .contact-card .role{ font-size:12px; color:#9FC7DB; text-transform:uppercase; letter-spacing:0.08em; }
+  .contact-card .name{ font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:17px; }
+  .contact-card .phone{ font-size:15.5px; color:#DFF2FA; }
+
+  /* ---------- Footer ---------- */
+  footer{
+    background:var(--glacier-deep-2);
+    color:#9FC7DB;
+    border-top:1px solid rgba(255,255,255,0.1);
+  }
+  .footer-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:16px;
+    padding:34px 0;
+    font-size:13px;
+  }
+  .footer-brand{ display:flex; align-items:center; gap:10px; color:var(--white); font-family:'Space Grotesk', sans-serif; font-weight:600; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 920px){
+    .navlinks{ display:none; }
+    .menu-toggle{ display:block; }
+    .hero-grid{ grid-template-columns:1fr; }
+    .hero-visual{ order:-1; max-width:260px; margin:0 auto 10px; }
+    .service-grid{ grid-template-columns:repeat(2,1fr); }
+    .strip .wrap{ grid-template-columns:repeat(2,1fr); }
+    .gallery-grid{ grid-template-columns:repeat(3,1fr); grid-auto-rows:150px; }
+    .area-grid{ grid-template-columns:1fr; gap:36px; }
+    .contact-grid{ grid-template-columns:1fr; }
+  }
+  @media (max-width: 560px){
+    .service-grid{ grid-template-columns:1fr; }
+    .gallery-grid{ grid-template-columns:repeat(2,1fr); grid-auto-rows:140px; }
+    .strip .wrap{ grid-template-columns:repeat(2,1fr); padding:34px 20px; }
+    section{ padding:64px 0; }
+    .hero{ padding:56px 0 80px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="brand">
+      <svg class="mark" width="42" height="42" viewBox="0 0 42 42" fill="none">
+        <circle cx="21" cy="21" r="21" fill="url(#gradMarkHeader)"/>
+        <g stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round">
+          <path d="M21 11v20M13.5 15.5l15 11M28.5 15.5l-15 11"/>
+        </g>
+        <g fill="#FFFFFF">
+          <circle cx="21" cy="11" r="1.4"/><circle cx="21" cy="31" r="1.4"/>
+          <circle cx="13.5" cy="15.5" r="1.4"/><circle cx="28.5" cy="26.5" r="1.4"/>
+          <circle cx="28.5" cy="15.5" r="1.4"/><circle cx="13.5" cy="26.5" r="1.4"/>
+        </g>
+        <path d="M8 21 A13 6 0 0 1 34 21" stroke="#FFFFFF" stroke-width="1.4" opacity="0.55" fill="none"/>
+        <defs>
+          <linearGradient id="gradMarkHeader" x1="0" y1="0" x2="42" y2="42">
+            <stop offset="0" stop-color="#63D6F5"/>
+            <stop offset="1" stop-color="#0E77B3"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <span class="brand-text">
+        <span class="name">Borges</span><br>
+        <span class="sub">Ar Condicionado</span>
+      </span>
+    </a>
+
+    <nav class="navlinks">
+      <a href="#servicos">Serviços</a>
+      <a href="#fotos">Fotos</a>
+      <a href="#area">Atendimento</a>
+      <a href="#contato">Contato</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a class="btn btn-primary" href="https://wa.me/5547999388160" target="_blank" rel="noopener">
+        WhatsApp
+      </a>
+      <button class="menu-toggle" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-noise"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Itapema &amp; Região</span>
+      <h1>Clima ideal em <em>todo</em> ambiente, o ano inteiro.</h1>
+      <p>Instalação, manutenção, limpeza e infraestrutura de ar-condicionado com quem entende do assunto. Orçamento rápido, sem enrolação.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://wa.me/5547999388160" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M17.6 6.3A8.7 8.7 0 0 0 3.4 16.5L2 22l5.6-1.5A8.7 8.7 0 1 0 17.6 6.3Z" stroke="#fff" stroke-width="1.5"/><path d="M8.4 8.7c.3-.6.6-.6.9-.6h.6c.2 0 .4 0 .6.4.2.5.7 1.7.7 1.8.1.2.1.3 0 .5-.1.2-.2.3-.3.4l-.4.5c-.1.2-.3.3-.1.6.2.4.9 1.4 1.9 2.3 1.3 1.1 2.3 1.5 2.7 1.6.2.1.4.1.5-.1l.6-.7c.2-.2.4-.2.6-.1l1.7.8c.2.1.4.2.4.4.1.5-.1 1.3-.5 1.8-.4.5-1.3.9-2 .9-1.5.1-3.1-.6-4.9-2.2-2.2-1.9-3.4-3.9-3.6-4.4-.2-.4-1-1.4-.9-2.6 0-.7.3-1.2.5-1.4Z" fill="#fff"/></svg>
+          Chamar no WhatsApp
+        </a>
+        <a class="btn btn-ghost" href="https://www.instagram.com/bclimatiza/" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+          @bclimatiza
+        </a>
+      </div>
+
+      <div class="hero-badges">
+        <span class="badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#63D6F5" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Instalação com garantia</span>
+        <span class="badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#63D6F5" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Atendimento rápido</span>
+        <span class="badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#63D6F5" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Orçamento sem compromisso</span>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="snow-ring">
+        <svg viewBox="0 0 200 200" fill="none">
+          <circle cx="100" cy="100" r="98" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
+          <circle cx="100" cy="100" r="78" stroke="rgba(255,255,255,0.10)" stroke-width="1"/>
+          <g stroke="url(#gradSnow)" stroke-width="3" stroke-linecap="round">
+            <path d="M100 42v116M55 66l90 68M145 66l-90 68"/>
+          </g>
+          <g fill="url(#gradSnow)">
+            <circle cx="100" cy="42" r="4"/><circle cx="100" cy="158" r="4"/>
+            <circle cx="55" cy="66" r="4"/><circle cx="145" cy="134" r="4"/>
+            <circle cx="145" cy="66" r="4"/><circle cx="55" cy="134" r="4"/>
+          </g>
+          <path d="M28 100 A72 34 0 0 1 172 100" stroke="#B9F1FF" stroke-width="2" opacity="0.6" fill="none"/>
+          <path d="M28 100 A72 34 0 0 0 172 100" stroke="#63D6F5" stroke-width="1.4" opacity="0.35" fill="none"/>
+          <defs>
+            <linearGradient id="gradSnow" x1="30" y1="30" x2="170" y2="170">
+              <stop offset="0" stop-color="#B9F1FF"/>
+              <stop offset="1" stop-color="#63D6F5"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <svg class="wave-sep" viewBox="0 0 1440 80" preserveAspectRatio="none" style="height:70px;">
+    <path d="M0 40 C 240 90, 480 0, 720 30 C 960 60, 1200 10, 1440 40 L1440 80 L0 80 Z" fill="#FFFFFF"/>
+  </svg>
+</section>
+
+<section class="services" id="servicos">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">O que fazemos</span>
+      <h2>Serviço completo, do projeto ao pós-instalação.</h2>
+      <p>Cuidamos de cada etapa do seu sistema de ar-condicionado, para você não se preocupar com nada além de aproveitar o conforto.</p>
+    </div>
+
+    <div class="service-grid">
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><rect x="3" y="6" width="18" height="7" rx="1.5"/><path d="M7 13v3M17 13v3M5 20h14"/></svg>
+        </div>
+        <h3>Instalação</h3>
+        <p>Instalação completa de split e multi-split, com tubulação, dreno e elétrica dedicada, pronta pra funcionar no ponto certo.</p>
+        <span class="service-tag">Sob medida</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2 2M16.4 16.4l2 2M5.6 18.4l2-2M16.4 7.6l2-2"/><circle cx="12" cy="12" r="4"/></svg>
+        </div>
+        <h3>Manutenção</h3>
+        <p>Revisão preventiva do gás, filtros e componentes para o aparelho render mais e gastar menos energia.</p>
+        <span class="service-tag">Preventiva e corretiva</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M4 12c2-3 4-4 8-4s6 1 8 4c-2 3-4 4-8 4s-6-1-8-4Z"/><circle cx="12" cy="12" r="2"/></svg>
+        </div>
+        <h3>Limpeza</h3>
+        <p>Higienização profunda que elimina fungos, bactérias e odores, melhorando a qualidade do ar do ambiente.</p>
+        <span class="service-tag">Ar mais saudável</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M4 21V9l8-6 8 6v12M9 21v-6h6v6"/></svg>
+        </div>
+        <h3>Infraestrutura</h3>
+        <p>Projeto e execução da parte elétrica e hidráulica necessária para instalar o sistema com segurança.</p>
+        <span class="service-tag">Projeto completo</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="wrap">
+    <div class="strip-item">
+      <div class="num">100%</div>
+      <div class="lbl">Atendimento local</div>
+    </div>
+    <div class="strip-item">
+      <div class="num">2</div>
+      <div class="lbl">Técnicos dedicados</div>
+    </div>
+    <div class="strip-item">
+      <div class="num">24h</div>
+      <div class="lbl">Retorno de orçamento</div>
+    </div>
+    <div class="strip-item">
+      <div class="num">4</div>
+      <div class="lbl">Serviços especializados</div>
+    </div>
+  </div>
+</div>
+
+<section id="fotos">
+  <div class="wrap">
+    <div class="gallery-head-row section-head">
+      <div>
+        <span class="eyebrow">Nosso trabalho</span>
+        <h2>Alguns dos nossos serviços.</h2>
+      </div>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="photo-slot">
+        <img src="images/servico-01.png" alt="Foto do serviço 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="placeholder-fallback">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#128FD4" stroke-width="1.6"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.4"/><path d="M8 6l1.3-2h5.4L16 6"/></svg>
+          <span>Foto 1</span>
+        </div>
+      </div>
+      <div class="photo-slot">
+        <img src="images/servico-02.png" alt="Foto do serviço 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="placeholder-fallback">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#128FD4" stroke-width="1.6"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.4"/><path d="M8 6l1.3-2h5.4L16 6"/></svg>
+          <span>Foto 2</span>
+        </div>
+      </div>
+      <div class="photo-slot">
+        <img src="images/servico-03.png" alt="Foto do serviço 3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="placeholder-fallback">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#128FD4" stroke-width="1.6"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.4"/><path d="M8 6l1.3-2h5.4L16 6"/></svg>
+          <span>Foto 3</span>
+        </div>
+      </div>
+      <div class="photo-slot">
+        <img src="images/servico-04.png" alt="Foto do serviço 4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="placeholder-fallback">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#128FD4" stroke-width="1.6"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.4"/><path d="M8 6l1.3-2h5.4L16 6"/></svg>
+          <span>Foto 4</span>
+        </div>
+      </div>
+      <div class="photo-slot">
+        <img src="images/servico-05.png" alt="Foto do serviço 5" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="placeholder-fallback">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#128FD4" stroke-width="1.6"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.4"/><path d="M8 6l1.3-2h5.4L16 6"/></svg>
+          <span>Foto 5</span>
+        </div>
+      </div>
+      <div class="photo-slot">
+        <img src="images/servico-06.png" alt="Foto do serviço 6" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="placeholder-fallback">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#128FD4" stroke-width="1.6"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.4"/><path d="M8 6l1.3-2h5.4L16 6"/></svg>
+          <span>Foto 6</span>
+        </div>
+      </div>
+      <div class="photo-slot">
+        <img src="images/servico-07.png" alt="Foto do serviço 7" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="placeholder-fallback">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#128FD4" stroke-width="1.6"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.4"/><path d="M8 6l1.3-2h5.4L16 6"/></svg>
+          <span>Foto 7</span>
+        </div>
+      </div>
+      <div class="photo-slot">
+        <img src="images/servico-08.png" alt="Foto do serviço 8" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="placeholder-fallback">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#128FD4" stroke-width="1.6"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.4"/><path d="M8 6l1.3-2h5.4L16 6"/></svg>
+          <span>Foto 8</span>
+        </div>
+      </div>
+      <div class="photo-slot">
+        <img src="images/servico-09.png" alt="Foto do serviço 9" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="placeholder-fallback">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#128FD4" stroke-width="1.6"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.4"/><path d="M8 6l1.3-2h5.4L16 6"/></svg>
+          <span>Foto 9</span>
+        </div>
+      </div>
+      <div class="photo-slot">
+        <img src="images/servico-10.png" alt="Foto do serviço 10" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="placeholder-fallback">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#128FD4" stroke-width="1.6"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.4"/><path d="M8 6l1.3-2h5.4L16 6"/></svg>
+          <span>Foto 10</span>
+        </div>
+      </div>
+    </div>
+
+    <!--
+      Instruções para adicionar fotos (não aparece no site):
+      Crie uma pasta "images" ao lado do index.html e salve os arquivos como
+      servico-01.png até servico-10.png. Cada foto aparece automaticamente no
+      espaço correspondente. Detalhes completos no README.md da pasta do site.
+    -->
+  </div>
+</section>
+
+<section class="area" id="area">
+  <div class="wrap area-grid">
+    <div>
+      <span class="eyebrow">Por que a Borges</span>
+      <h2 style="margin-top:14px; font-size:clamp(26px,3vw,34px);">Feito por quem cuida do próprio bairro.</h2>
+      <ul class="area-list">
+        <li>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#128FD4" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+          <span><strong>Atendimento em Itapema e região</strong> — deslocamento rápido até o seu endereço.</span>
+        </li>
+        <li>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#128FD4" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+          <span><strong>Equipe técnica direta</strong> — sem intermediário, você fala com quem executa o serviço.</span>
+        </li>
+        <li>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#128FD4" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+          <span><strong>Serviço completo</strong> — da infraestrutura até a manutenção, sem precisar contratar outra empresa.</span>
+        </li>
+        <li>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#128FD4" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+          <span><strong>Transparência no orçamento</strong> — valor combinado antes de qualquer serviço.</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="area-card">
+      <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#63D6F5" stroke-width="1.6" style="margin-bottom:18px;"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+      <h3>Itapema &amp; Região</h3>
+      <p>Atendemos residências, comércios e obras em toda a região. Chama no WhatsApp e combina o melhor horário pra visita técnica.</p>
+      <a class="btn btn-primary" href="https://wa.me/5547999388160" target="_blank" rel="noopener">Solicitar visita técnica</a>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contato">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Fale com a gente</span>
+      <h2>Chama no WhatsApp e resolve na hora.</h2>
+      <p>Escolha um dos nossos contatos ou siga a gente no Instagram pra ver os últimos trabalhos.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="who">
+          <div class="avatar">ED</div>
+          <div>
+            <div class="role">Técnico</div>
+            <div class="name">Edson</div>
+          </div>
+        </div>
+        <div class="phone">(47) 9 9938-8160</div>
+        <a class="btn btn-primary" href="https://wa.me/5547999388160" target="_blank" rel="noopener">Chamar Edson</a>
+      </div>
+
+      <div class="contact-card">
+        <div class="who">
+          <div class="avatar">KV</div>
+          <div>
+            <div class="role">Técnico</div>
+            <div class="name">Kevin</div>
+          </div>
+        </div>
+        <div class="phone">(47) 9 9646-4681</div>
+        <a class="btn btn-primary" href="https://wa.me/5547996464681" target="_blank" rel="noopener">Chamar Kevin</a>
+      </div>
+
+      <div class="contact-card">
+        <div class="who">
+          <div class="avatar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#06304A" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+          </div>
+          <div>
+            <div class="role">Instagram</div>
+            <div class="name">@bclimatiza</div>
+          </div>
+        </div>
+        <div class="phone" style="color:#B9DCEC;">Fotos e vídeos dos serviços realizados.</div>
+        <a class="btn btn-outline" style="border-color:rgba(255,255,255,0.35); color:#fff;" href="https://www.instagram.com/bclimatiza/" target="_blank" rel="noopener">Seguir no Instagram</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <svg width="26" height="26" viewBox="0 0 42 42" fill="none">
+        <circle cx="21" cy="21" r="21" fill="url(#gradMarkFooter)"/>
+        <g stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round">
+          <path d="M21 11v20M13.5 15.5l15 11M28.5 15.5l-15 11"/>
+        </g>
+        <defs>
+          <linearGradient id="gradMarkFooter" x1="0" y1="0" x2="42" y2="42">
+            <stop offset="0" stop-color="#63D6F5"/>
+            <stop offset="1" stop-color="#0E77B3"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      Borges Ar Condicionado
+    </div>
+    <div>© 2026 Borges Ar Condicionado — Itapema &amp; Região. Todos os direitos reservados.</div>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.querySelector('.menu-toggle');
+  const navlinks = document.querySelector('.navlinks');
+  toggle.addEventListener('click', () => {
+    const open = navlinks.style.display === 'flex';
+    navlinks.style.display = open ? 'none' : 'flex';
+    navlinks.style.flexDirection = 'column';
+    navlinks.style.position = 'absolute';
+    navlinks.style.top = '64px';
+    navlinks.style.left = '0';
+    navlinks.style.right = '0';
+    navlinks.style.background = '#fff';
+    navlinks.style.padding = '20px 28px';
+    navlinks.style.borderBottom = '1px solid var(--line)';
+    navlinks.style.gap = '18px';
+  });
+</script>
+
+</body>
+</html>
